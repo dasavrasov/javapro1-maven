@@ -2,7 +2,7 @@ package ru.stepup.service;
 
 import org.springframework.stereotype.Service;
 import ru.stepup.dao.UserDao;
-import ru.stepup.entity.User;
+import ru.stepup.dto.User;
 
 import java.util.List;
 

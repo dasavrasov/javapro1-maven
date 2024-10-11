@@ -1,4 +1,4 @@
-package ru.stepup.entity;
+package ru.stepup.dto;
 
 public class User {
     private Long id;

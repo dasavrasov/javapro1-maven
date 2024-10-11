@@ -3,7 +3,7 @@ package ru.stepup.dao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import ru.stepup.entity.User;
+import ru.stepup.dto.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,6 +23,11 @@ public class UserDao {
     }
     public void update(User user) {
         jdbcTemplate.update("UPDATE users SET username = ? WHERE id = ?", user.getName(), user.getId());
+    }
+
+    public User findById(Long id) {
+        String sql = "SELECT * FROM users WHERE id=?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{id}, new UserRowMapper());
     }
 
     public User findByName(String name) {
